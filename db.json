@@ -7,6 +7,22 @@
       "telefono": "3046343387",
       "notas": "Probando JSON server",
       "id": 1
+    },
+    {
+      "nombre": "Valeria",
+      "empresa": "Valeria Postres",
+      "email": "valeria@gmail.com",
+      "telefono": "3046343353",
+      "notas": "Cotizando materiales",
+      "id": 2
+    },
+    {
+      "nombre": "Andres",
+      "empresa": "Mercado Libre",
+      "email": "andres@andres.com",
+      "telefono": "3012645789",
+      "notas": "Cotizando papeleria",
+      "id": 3
     }
   ]
 }
