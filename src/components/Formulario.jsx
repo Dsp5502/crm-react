@@ -9,14 +9,33 @@ const Formulario = () => {
       .min(3, 'El Nombre es muy corto')
       .max(20, 'El Nombre es muy largo')
       .required('El Nombre del Cliente es Obligatorio'),
-    empresa: '',
-    email: '',
-    telefono: '',
-    notas: '',
+    empresa: Yup.string().required('El Nombre de la empresa es obligatorio'),
+    email: Yup.string()
+      .email('Email no válido')
+      .required('El email es obligatorio'),
+    telefono: Yup.number()
+      .integer('Número no válido')
+      .positive('Número no válido')
+      .typeError('El Número no es válido'),
   });
 
-  const handleSubmit = (values) => {
-    console.log(values);
+  const handleSubmit = async (values) => {
+    try {
+      const url = 'http://localhost:4000/clientes';
+
+      const respuesta = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await respuesta.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className='bg-white mt-10 px-5 py-10 rounded-md shadow-md md:w-3/4 mx-auto '>
@@ -64,6 +83,9 @@ const Formulario = () => {
                 placeholder='Empresa del Cliente'
                 name='empresa'
               />
+              {errors.empresa && touched.empresa ? (
+                <Alerta>{errors.empresa}</Alerta>
+              ) : null}
             </div>
             <div className='mb-4'>
               <label className='text-gray-800' htmlFor='email'>
@@ -76,6 +98,9 @@ const Formulario = () => {
                 placeholder='Email del Cliente'
                 name='email'
               />
+              {errors.email && touched.email ? (
+                <Alerta>{errors.email}</Alerta>
+              ) : null}
             </div>
             <div className='mb-4'>
               <label className='text-gray-800' htmlFor='telefono'>
@@ -88,6 +113,9 @@ const Formulario = () => {
                 placeholder='Teléfono del Cliente'
                 name='telefono'
               />
+              {errors.telefono && touched.telefono ? (
+                <Alerta>{errors.telefono}</Alerta>
+              ) : null}
             </div>
             <div className='mb-4'>
               <label className='text-gray-800' htmlFor='notas'>
