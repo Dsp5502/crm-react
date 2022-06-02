@@ -1,14 +1,6 @@
 {
   "clientes": [
     {
-      "nombre": "David",
-      "empresa": "Codigo dev",
-      "email": "a@a.com",
-      "telefono": "3046343387",
-      "notas": "Probando JSON server",
-      "id": 1
-    },
-    {
       "nombre": "Valeria",
       "empresa": "Valeria Postres",
       "email": "valeria@gmail.com",
@@ -17,12 +9,20 @@
       "id": 2
     },
     {
-      "nombre": "Andres",
+      "nombre": "Andres Martinez",
       "empresa": "Mercado Libre",
       "email": "andres@andres.com",
       "telefono": "3012645789",
-      "notas": "",
+      "notas": "Editando",
       "id": 3
+    },
+    {
+      "nombre": "Daniel Linares",
+      "empresa": "CargaYapp",
+      "email": "dalexp@gmail.com",
+      "telefono": "3202706006",
+      "notas": "Pagina Web",
+      "id": 4
     }
   ]
 }

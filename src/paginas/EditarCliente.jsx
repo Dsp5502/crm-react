@@ -28,7 +28,11 @@ const EditarCliente = () => {
       <p className='mt-3'>
         Utiliza este formulario para editar datos de un cliente.
       </p>
-      <Formulario cargando={cargando} cliente={cliente} />
+      {cliente?.nombre ? (
+        <Formulario cargando={cargando} cliente={cliente} />
+      ) : (
+        <p>Cliente ID no válido</p>
+      )}
     </>
   );
 };
