@@ -1,8 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Spinner from '../components/Spinner';
 
 const VerCliente = () => {
   const [cliente, setCliente] = useState({});
+  const [cargando, setCargando] = useState(true);
   const { id } = useParams();
 
   useEffect(() => {
@@ -15,11 +17,17 @@ const VerCliente = () => {
       } catch (error) {
         console.log(error);
       }
+
+      setCargando(!cargando);
     };
     obtenerClienteApi();
   }, []);
 
-  return (
+  return cargando ? (
+    <Spinner />
+  ) : Object.keys(cliente).length === 0 ? (
+    <p>No hay resultado</p>
+  ) : (
     <div>
       <h1 className='font-black text-4xl text-blue-900'>
         Ver Cliente: {cliente.nombre}
