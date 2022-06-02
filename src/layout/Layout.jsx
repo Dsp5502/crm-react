@@ -17,7 +17,7 @@ const Layout = () => {
             className={`${
               urlActual === '/' ? 'text-blue-300' : 'text-white'
             } text-2xl block mt-2 hover:text-blue-300`}
-            to='/clientes'
+            to='/'
           >
             Clientes
           </Link>
@@ -25,7 +25,7 @@ const Layout = () => {
             className={`${
               urlActual === '/nuevo' ? 'text-blue-300' : 'text-white'
             } text-2xl block mt-2 hover:text-blue-300`}
-            to='/clientes/nuevo'
+            to='/nuevo'
           >
             Nuevo Cliente
           </Link>
