@@ -5,10 +5,11 @@ import Inicio from './paginas/Inicio';
 import NuevoCliente from './paginas/NuevoCliente';
 import VerCliente from './paginas/VerCliente';
 function App() {
+  console.log(import.meta.env.VITE_API_URl);
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path='/clientes' element={<Layout />}>
           <Route index element={<Inicio />} />
           <Route path='nuevo' element={<NuevoCliente />} />
           <Route path='editar/:id' element={<EditarCliente />} />
